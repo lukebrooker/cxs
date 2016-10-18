@@ -1,14 +1,12 @@
 
 import hash from 'murmurhash-js/murmurhash3_gc'
-import debounce from 'lodash.debounce'
 import createRules from './create-rules'
 
 export let styleTag = null
 export let cache = {}
 
 export let options = {
-  autoAttach: true,
-  debounce: 0
+  autoAttach: true
 }
 
 const randomHex = () => Math.floor(Math.random() * 16777215).toString(16)
@@ -61,7 +59,7 @@ const attach = () => {
     })
 }
 
-cxs.attach = debounce(attach, options.debounce)
+cxs.attach = attach
 
 cxs.options = options
 cxs.clearCache = () => {
