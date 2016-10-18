@@ -9,10 +9,6 @@ var _murmurhash3_gc = require('murmurhash-js/murmurhash3_gc');
 
 var _murmurhash3_gc2 = _interopRequireDefault(_murmurhash3_gc);
 
-var _lodash = require('lodash.debounce');
-
-var _lodash2 = _interopRequireDefault(_lodash);
-
 var _createRules = require('./create-rules');
 
 var _createRules2 = _interopRequireDefault(_createRules);
@@ -25,8 +21,7 @@ var styleTag = exports.styleTag = null;
 var cache = exports.cache = {};
 
 var options = exports.options = {
-  autoAttach: true,
-  debounce: 0
+  autoAttach: true
 };
 
 var randomHex = function randomHex() {
@@ -86,7 +81,7 @@ var attach = function attach() {
   });
 };
 
-cxs.attach = (0, _lodash2.default)(attach, options.debounce);
+cxs.attach = attach;
 
 cxs.options = options;
 cxs.clearCache = function () {
